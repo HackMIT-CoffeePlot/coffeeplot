@@ -25,12 +25,16 @@ SECRET_KEY = 'django-insecure-i9jw(r)it@)y#zs%ho@vhzwnxhrhxm(0w&c65(@xa4ixz*-%g@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*'] # you can add more as per your need
 
 # Application definition
 
+AUTH_USER_MODEL = "main.User"
+
 INSTALLED_APPS = [
+    'knox',
+    'rest_framework',
+    'main',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
