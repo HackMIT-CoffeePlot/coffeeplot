@@ -20,15 +20,15 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   fonts:
-    - family: GraphicLCG-Regular
+    - family: GraphikLCG-Regular
       fonts:
-        - asset: fonts/GraphicLCG-Regular.ttf
-    - family: GraphicLCG-SemiBold
+        - asset: lib/fonts/GraphikLCG-Regular.ttf
+    - family: GraphikLCG-SemiBold
       fonts:
-        - asset: fonts/GraphicLCG-Semibold.ttf
+        - asset: lib/fonts/GraphikLCG-Semibold.ttf
     - family: Recoleta-Medium
       fonts:
-        - asset: fonts/Recoleta-Medium.ttf
+        - asset: lib/fonts/Recoleta-Medium.ttf
     - family: Recoleta-SemiBold
       fonts:
-        - asset: fonts/Recoleta-SemiBold.ttf 
+        - asset: lib/fonts/Recoleta-SemiBold.ttf 
