@@ -9,11 +9,26 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  shared_preferences: ^2.0.6
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: GraphicLCG-Regular
+      fonts:
+        - asset: fonts/GraphicLCG-Regular.ttf
+    - family: GraphicLCG-SemiBold
+      fonts:
+        - asset: fonts/GraphicLCG-Semibold.ttf
+    - family: Recoleta-Medium
+      fonts:
+        - asset: fonts/Recoleta-Medium.ttf
+    - family: Recoleta-SemiBold
+      fonts:
+        - asset: fonts/Recoleta-SemiBold.ttf 
