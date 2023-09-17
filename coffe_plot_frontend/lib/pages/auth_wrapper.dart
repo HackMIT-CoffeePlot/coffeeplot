@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:coffe_plot_frontend/services/auth_helper.dart';
 import 'package:coffe_plot_frontend/pages/home_page.dart';
+import 'package:coffe_plot_frontend/pages/listings_page.dart';
+import 'package:coffe_plot_frontend/pages/stats_page.dart';
 import 'package:coffe_plot_frontend/pages/login_signup.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -14,8 +16,9 @@ class _AuthWrapperState extends State<AuthWrapper> {
 
   // List of pages to display based on the selected index.
   final List<Widget> _pages = [
-    HomePage(), // This should be your HomePage with the Google Map
-    // Add other pages corresponding to List, Favorites, and Profile here...
+    HomePage(), 
+    ListingPage(),
+    StatsPage(),
   ];
 
   @override
