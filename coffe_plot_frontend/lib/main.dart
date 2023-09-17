@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false, // remove debug banner
       title: 'Your App Title',
       theme: ThemeData(
           primarySwatch: Colors.blue, fontFamily: 'GraphikLCG-Regular'),

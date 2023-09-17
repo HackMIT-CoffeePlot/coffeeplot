@@ -5,13 +5,13 @@ class StatsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Stats Page'),
-      ),
       backgroundColor: Color(0xFFFFFEFA),
-      body: Center(
+      body: Container(
         child: Image(
           image: AssetImage('lib/svgs/stats-image.jpg'),
+          fit: BoxFit.contain,//fill, //contain, cover, scaleDown, 
+          height: double.infinity,
+          width: double.infinity,
         ),
       ),
     );
