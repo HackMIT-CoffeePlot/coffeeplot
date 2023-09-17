@@ -37,6 +37,9 @@ class _AuthWrapperState extends State<AuthWrapper> {
             _selectedIndex = index;
           });
         },
+        type: BottomNavigationBarType.fixed, 
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
