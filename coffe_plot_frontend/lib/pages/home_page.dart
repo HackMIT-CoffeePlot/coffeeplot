@@ -1,10 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:coffe_plot_frontend/services/auth_helper.dart';
 import 'package:coffe_plot_frontend/pages/login_signup.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart'; // Import the Google Maps package
+import 'package:geolocator/geolocator.dart'; // Import the Geolocator package
 
-class HomePage extends StatelessWidget {
-  final LatLng _center = const LatLng(37.4219999, -122.0840575);  // Default to GooglePlex
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  LatLng? _currentLocation;
+  final Set<Marker> _markers = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserLocation();
+  }
+
+  _getUserLocation() async {
+    try {
+      await Geolocator.checkPermission();
+      await Geolocator.requestPermission();
+
+      Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+
+      setState(() {
+        _currentLocation = LatLng(position.latitude, position.longitude);
+        _markers.add(
+          Marker(
+            markerId: MarkerId('userLocation'),
+            position: _currentLocation!,
+          ),
+        );
+      });
+    } catch (e) {
+      print("Error fetching user location: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +60,17 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: _center,
-          zoom: 11.0,
-        ),
-      ),
+      body: _currentLocation == null
+          ? Center(
+              child:
+                  CircularProgressIndicator()) // Show a loading indicator until the location is fetched
+          : GoogleMap(
+              initialCameraPosition: CameraPosition(
+                target: _currentLocation!,
+                zoom: 11.0,
+              ),
+              markers: _markers,
+            ),
     );
   }
 }

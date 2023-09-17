@@ -20,7 +20,10 @@ class User(AbstractUser):
 # Location Model
 class Location(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    address = models.CharField(max_length=100)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zip_code = models.IntegerField(default=0)
+    country = models.CharField(max_length=50)
 
 class Compost(models.Model):
     COFFEE_GROUND = 'Coffee Ground'
