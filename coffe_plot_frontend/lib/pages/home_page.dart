@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   _getUserLocation() async {
+    print('We are getting the location');
     try {
       await Geolocator.checkPermission();
       await Geolocator.requestPermission();

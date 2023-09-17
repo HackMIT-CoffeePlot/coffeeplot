@@ -11,38 +11,6 @@ class MyApp extends StatelessWidget {
       title: 'Your App Title',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'GraphikLCG-Regular'),
       home: AuthWrapper(),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'lib/svgs/Group19.svg',
-              color: Colors.grey,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'lib/svgs/Group20.svg',
-              color: Colors.grey,
-            ),
-            label: 'List',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'lib/svgs/Group21.svg',
-              color: Colors.grey,
-            ),
-            label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'lib/svgs/Group22.svg',
-              color: Colors.grey,
-            ),
-            label: 'Profile',
-          ),
-        ],
-      )
     );
   }
 }
