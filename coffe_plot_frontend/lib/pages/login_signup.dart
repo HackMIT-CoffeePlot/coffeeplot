@@ -14,7 +14,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   final TextEditingController _passwordController = TextEditingController();
   final ApiService _apiService = ApiService();
 
-    // For the DropdownButton
+  // For the DropdownButton
   String? _selectedAccountType;
   final List<String> _accountTypes = ['Personal Account', 'Business Account'];
 
@@ -37,30 +37,30 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   }
 
   Future<void> _signup(BuildContext context) async {
-  if (_selectedAccountType == null) {
-    print("Account type not selected");
-    return;
-  }
+    print(_selectedAccountType);
+    if (_selectedAccountType == null) {
+      print("Account type not selected");
+      return;
+    }
 
-  final response = await _apiService.signup(
-    _usernameController.text,
-    _emailController.text,
-    _passwordController.text,
-    _selectedAccountType!,  // Add this line
-  );
-
-  if (response.containsKey('token')) {
-    await AuthHelper.setToken(response['token']);
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
+    final response = await _apiService.signup(
+      _usernameController.text,
+      _emailController.text,
+      _passwordController.text,
+      _selectedAccountType![0], // Add this line
     );
-  } else {
-    // Handle any errors that might come up
-    print("Error signing up: ${response['error']}");
-  }
-}
 
+    if (response.containsKey('token')) {
+      await AuthHelper.setToken(response['token']);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } else {
+      // Handle any errors that might come up
+      print("Error signing up: ${response['error']}");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +100,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                   _selectedAccountType = newValue;
                 });
               },
-              items: _accountTypes.map<DropdownMenuItem<String>>((String value) {
+              items:
+                  _accountTypes.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
                   child: Text(value),
@@ -123,4 +124,3 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
     );
   }
 }
-
