@@ -18,8 +18,8 @@ class RegisterUserSerializer(serializers.ModelSerializer):
             account_type = validated_data['account_type'])
         return user
 
-
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        data['account_type'] = instance.account_type.value  # Use the enum value for representation
+        data['account_type'] = instance.account_type
         return data
+

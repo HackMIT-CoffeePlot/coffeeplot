@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User
+from .models import User, Location, Compost
 
 # Register your models here.
 class CustomUserAdmin(UserAdmin):
@@ -12,3 +12,6 @@ class CustomUserAdmin(UserAdmin):
     list_display = ['username', 'email', 'account_type', 'is_staff']
 
 admin.site.register(User, CustomUserAdmin)
+admin.site.register(Location)
+admin.site.register(Compost)
+
