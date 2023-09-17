@@ -17,7 +17,7 @@ class _AuthWrapperState extends State<AuthWrapper> {
 
   // List of pages to display based on the selected index.
   final List<Widget> _pages = [
-    HomePage(), 
+    HomePage(),
     ListingPage(),
     FavoritesPage(),
     StatsPage(),
@@ -40,29 +40,33 @@ class _AuthWrapperState extends State<AuthWrapper> {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'lib/svgs/Group21.svg',
-              color: Colors.grey,
+               _selectedIndex == 0
+                  ? 'lib/svgs/nav-icon-map-selected.svg'
+                  : 'lib/svgs/Group21.svg',
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'lib/svgs/Group22.svg',
-              color: Colors.grey,
+              _selectedIndex == 1
+                  ? 'lib/svgs/nav-icon-list-selected.svg'
+                  : 'lib/svgs/Group22.svg',
             ),
             label: 'List',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'lib/svgs/Group20.svg',
-              color: Colors.grey,
+              _selectedIndex == 2
+                  ? 'lib/svgs/nav-icon-favorites-selected.svg'
+                  : 'lib/svgs/Group20.svg',
             ),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'lib/svgs/Group19.svg',
-              color: Colors.grey,
+              _selectedIndex == 3
+                  ? 'lib/svgs/nav-icon-stats-selected.svg'
+                  : 'lib/svgs/Group19.svg',
             ),
             label: 'Stats',
           ),
