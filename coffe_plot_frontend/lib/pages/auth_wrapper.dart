@@ -29,6 +29,10 @@ class _AuthWrapperState extends State<AuthWrapper> {
       appBar: AppBar(
         backgroundColor: Color(0xFFFFFEFA),
         elevation: 0.0,
+        leading: IconButton(
+          icon: new Container(),
+          onPressed: null,
+        ),
         title: Center(
           child: SvgPicture.asset(
             'lib/svgs/toplogo.svg',
