@@ -13,7 +13,7 @@ class ListingPage extends StatelessWidget {
           child: Text(
             'Near Me',
             style: TextStyle(
-              fontFamily: 'Recoleta-SemiBold', // Use the font family name
+              fontFamily: 'GraphikLCG-Semibold', // Use the font family name
             ),
           ), // Add this line
         ),

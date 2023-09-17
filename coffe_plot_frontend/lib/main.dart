@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false, // remove debug banner
       title: 'Coffee Plot',
       theme: ThemeData(
-          primarySwatch: Color(0xFFFFFEFA), fontFamily: 'GraphikLCG-Regular'),
+          primarySwatch: Colors.blue, fontFamily: 'Recoleta-SemiBold'),
       home: AuthWrapper(),
     );
   }
