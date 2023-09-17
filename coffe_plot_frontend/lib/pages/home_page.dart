@@ -59,21 +59,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Page'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.logout),
-            onPressed: () async {
-              await AuthHelper.removeToken(); // remove the token
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => LoginSignupPage()),
-              );
-            },
-          ),
-        ],
-      ),
       body: _currentLocation == null
           ? Center(
               child:

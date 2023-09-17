@@ -26,6 +26,28 @@ class _AuthWrapperState extends State<AuthWrapper> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFFFFFEFA),
+        elevation: 0.0,
+        title: Center(
+          child: SvgPicture.asset(
+            'lib/svgs/toplogo.svg',
+          ),
+        ),
+        actions: [
+          IconButton(
+            color: Colors.black,
+            icon: Icon(Icons.logout),
+            onPressed: () async {
+              await AuthHelper.removeToken(); // remove the token
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginSignupPage()),
+              );
+            },
+          ),
+        ],
+      ),
       body: IndexedStack(
         index: _selectedIndex,
         children: _pages,
@@ -37,13 +59,14 @@ class _AuthWrapperState extends State<AuthWrapper> {
             _selectedIndex = index;
           });
         },
-        type: BottomNavigationBarType.fixed, 
+        type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        backgroundColor: Color(0xFFFFFEFA),
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-               _selectedIndex == 0
+              _selectedIndex == 0
                   ? 'lib/svgs/nav-icon-map-selected.svg'
                   : 'lib/svgs/Group21.svg',
             ),
