@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
   http: ^0.13.3
   google_maps_flutter: ^2.5.0
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:
@@ -33,3 +34,17 @@ flutter:
     - family: Recoleta-SemiBold
       fonts:
         - asset: lib/fonts/Recoleta-SemiBold.ttf 
+  assets:
+    - lib/svgs/coffeegroundsmarker.svg
+    - lib/svgs/coffeegrounds.svg
+    - lib/svgs/foodscaps.svg
+    - lib/svgs/foodwastemarker.svg
+    - lib/svgs/Group19.svg
+    - lib/svgs/Group20.svg
+    - lib/svgs/Group21.svg
+    - lib/svgs/Group22.svg
+    - lib/svgs/profileicon.svg
+    - lib/svgs/searchbar.svg
+    - lib/svgs/toplogo.svg
+    - lib/svgs/yardwastemarker.svg
+    - lib/svgs/yardwaste.svg
