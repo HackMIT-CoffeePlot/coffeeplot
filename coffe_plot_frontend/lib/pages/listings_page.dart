@@ -18,16 +18,13 @@ class ListingPage extends StatelessWidget {
             child: BarSearch(),
           ),
         ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            'Near you',
-            style: TextStyle(
-              color: Color(0xFF7AA987),
-              fontSize: 40,
-              fontFamily: 'Recoleta-SemiBold', // Use the font family name
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/unnamed.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
             ),
-          ), // Add this line
+          ),
         ),
         Center(
           child: Container(
