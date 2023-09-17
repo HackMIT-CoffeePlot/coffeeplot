@@ -8,10 +8,7 @@ class StatsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Stats Page'),
       ),
-      // body:  SvgPicture.asset(
-      //         'lib/svgs/stats-image.svg',
-      //         color: Colors.grey,
-      //       ),
+      backgroundColor: Color(0xFFFFFEFA),
       body: Center(
         child: Image(
           image: AssetImage('lib/svgs/stats-image.jpg'),
