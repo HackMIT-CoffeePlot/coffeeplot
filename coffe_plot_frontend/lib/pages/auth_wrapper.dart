@@ -4,6 +4,7 @@ import 'package:coffe_plot_frontend/pages/home_page.dart';
 import 'package:coffe_plot_frontend/pages/listings_page.dart';
 import 'package:coffe_plot_frontend/pages/stats_page.dart';
 import 'package:coffe_plot_frontend/pages/login_signup.dart';
+import 'package:coffe_plot_frontend/pages/favourites_page.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AuthWrapper extends StatefulWidget {
@@ -19,6 +20,7 @@ class _AuthWrapperState extends State<AuthWrapper> {
     HomePage(), 
     ListingPage(),
     StatsPage(),
+    FavoritesPage(),
   ];
 
   @override
