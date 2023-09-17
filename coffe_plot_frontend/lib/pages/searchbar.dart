@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class SearchBar extends StatelessWidget {
-  final TextEditingController searchController;
-  final ValueChanged<String> onChanged;
-
-  SearchBar({
-    required this.searchController,
-    required this.onChanged,
-  });
-
+class BarSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: TextField(
-        controller: searchController,
-        decoration: InputDecoration(
-          hintText: 'Search...',
-          border: OutlineInputBorder(),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SvgPicture.asset('lib/svgs/searchbar.svg', width: 250, height: 60),
+        Padding(
+          padding: EdgeInsets.only(left: 50.0),
+          child: TextField(
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+            ),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.transparent,
+              hintText: 'Search',
+              hintStyle: TextStyle(
+                color: Colors.black38,
+                fontSize: 16,
+              ),
+              border: InputBorder.none,
+            ),
+          ),
         ),
-        onChanged: onChanged,
-      ),
+      ],
     );
   }
 }
-
-

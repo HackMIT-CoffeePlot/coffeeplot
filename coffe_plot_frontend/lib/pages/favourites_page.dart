@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './searchbar.dart';
 
 class FavoritesPage extends StatelessWidget {
   @override
@@ -7,7 +8,7 @@ class FavoritesPage extends StatelessWidget {
       backgroundColor: Color(0xFFFFFEFA),
       body: ListView(children: <Widget>[
         //your content goes
-        Center(child: Text('Favorites Page'))
+        Center(child: BarSearch())
       ]),
     );
   }

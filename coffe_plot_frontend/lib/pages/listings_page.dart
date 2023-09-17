@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './searchbar.dart';
 
 class ListingPage extends StatelessWidget {
   @override
@@ -7,7 +8,7 @@ class ListingPage extends StatelessWidget {
       backgroundColor: Color(0xFFFFFEFA),
       body: ListView(children: <Widget>[
         //your content goes
-        Center(child: Text('Listing Page')),
+        Center(child: BarSearch()),
         Align(
           alignment: Alignment.centerRight, // Align the text to the right
           child: Text(

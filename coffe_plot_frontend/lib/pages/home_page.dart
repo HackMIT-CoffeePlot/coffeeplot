@@ -4,6 +4,7 @@ import 'package:coffe_plot_frontend/pages/login_signup.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart'; // Import the Google Maps package
 import 'package:geolocator/geolocator.dart'; // Import the Geolocator package
 import 'package:flutter/services.dart';
+import './searchbar.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -59,18 +60,27 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _currentLocation == null
-          ? Center(
-              child:
-                  CircularProgressIndicator()) // Show a loading indicator until the location is fetched
-          : GoogleMap(
-              onMapCreated: _onMapCreated,
-              initialCameraPosition: CameraPosition(
-                target: _currentLocation!,
-                zoom: 11.0,
-              ),
-              markers: _markers,
-            ),
+      backgroundColor: Color(0xFFFFFEFA),
+      body: Stack(
+        children: [
+          _currentLocation == null
+              ? Center(child: CircularProgressIndicator())
+              : GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: CameraPosition(
+                    target: _currentLocation!,
+                    zoom: 11.0,
+                  ),
+                  markers: _markers,
+                ),
+          Positioned(
+            top: 10.0,
+            right: 15.0,
+            left: 15.0,
+            child: BarSearch(),
+          ),
+        ],
+      ),
     );
   }
 }
