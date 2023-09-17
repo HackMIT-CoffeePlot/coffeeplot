@@ -9,7 +9,7 @@ class BarSearch extends StatelessWidget {
       children: [
         SvgPicture.asset('lib/svgs/searchbar.svg', width: 250, height: 60),
         Padding(
-          padding: EdgeInsets.only(left: 50.0),
+          padding: EdgeInsets.only(left: 37.0),
           child: TextField(
             style: TextStyle(
               color: Colors.black,
@@ -22,6 +22,7 @@ class BarSearch extends StatelessWidget {
               hintStyle: TextStyle(
                 color: Colors.black38,
                 fontSize: 16,
+                fontFamily: 'GraphikLCG-Regular',
               ),
               border: InputBorder.none,
             ),

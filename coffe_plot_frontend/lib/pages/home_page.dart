@@ -81,26 +81,30 @@ class _HomePageState extends State<HomePage> {
         return DraggableScrollableSheet(
           expand: false,
           minChildSize: 0.2,
-          initialChildSize: 0.3, // 30% of the screen
-          maxChildSize: 0.89,// 100% of the screen
+          initialChildSize: 0.5, // 30% of the screen
+          maxChildSize: 0.89, // 100% of the screen
           builder: (BuildContext context, ScrollController scrollController) {
             return SingleChildScrollView(
               controller: scrollController,
               child: Container(
-                padding: EdgeInsets.all(16),
                 child: Column(
                   children: [
-                    Text(
-                      isRestaurant ? 'Restaurant Info' : 'Coffee Shop Info',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Text('Name: XYZ'), // Replace with actual data
-                    Text('Rating: 4.5'), // Replace with actual data
-                    // ... Add more information as needed
+                    // Text('Listing Details', style: TextStyle(fontSize: 30, fontFamily: 'GraphikLCG-Semibold', color: Colors.green)),
+                    // Text(
+                    //   isRestaurant ? 'Restaurant Info' : 'Coffee Shop Info',
+                    //   style: TextStyle(
+                    //       fontWeight: FontWeight.bold,
+                    //       fontSize: 24,
+                    //       fontFamily: 'GraphikLCG-Semibold'),
+                    // ),
+                    // SizedBox(height: 20),
+                    // Image(image: AssetImage('lib/svgs/compost-image-1.jpg'), height: 200, width: 200), // Replace with actual image
+                    // SizedBox(height: 20),
+                    // Text(
+                    //     'Name: Greenhouse Restaurant'), // Replace with actual data
+                    // Text('Rating: 4.5'), // Replace with actual data
+                    // // ... Add more information as needed
+                    Image(image: AssetImage('lib/svgs/bottom-sheet-image.jpg')), // Replace with actual image
                   ],
                 ),
               ),
@@ -112,34 +116,37 @@ class _HomePageState extends State<HomePage> {
   }
 
   _addRestaurantsAndCoffeeShops() {
-    _restaurants.forEach((restaurant) {
-      _markers.add(
-        Marker(
-          markerId: MarkerId(
-              'restaurant${restaurant.latitude}-${restaurant.longitude}'),
-          position: restaurant,
-          icon: BitmapDescriptor.defaultMarkerWithHue(
-            BitmapDescriptor.hueBlue,
-          ),
-          onTap: () => _showBottomSheet(restaurant),
-        ),
-      );
-    });
+  Color restaurantColor = Color.fromARGB(255, 2, 90, 255);
+  double restaurantHue = HSVColor.fromColor(restaurantColor).hue;
 
-    _coffeeShops.forEach((coffeeShop) {
-      _markers.add(
-        Marker(
-          markerId:
-              MarkerId('coffee${coffeeShop.latitude}-${coffeeShop.longitude}'),
-          position: coffeeShop,
-          icon: BitmapDescriptor.defaultMarkerWithHue(
-            BitmapDescriptor.hueRed,
-          ),
-          onTap: () => _showBottomSheet(coffeeShop),
-        ),
-      );
-    });
-  }
+  Color coffeeShopColor = Color.fromARGB(255, 255, 21, 0);
+  double coffeeShopHue = HSVColor.fromColor(coffeeShopColor).hue;
+
+  _restaurants.forEach((restaurant) {
+    _markers.add(
+      Marker(
+        markerId: MarkerId(
+            'restaurant${restaurant.latitude}-${restaurant.longitude}'),
+        position: restaurant,
+        icon: BitmapDescriptor.defaultMarkerWithHue(restaurantHue),
+        onTap: () => _showBottomSheet(restaurant),
+      ),
+    );
+  });
+
+  _coffeeShops.forEach((coffeeShop) {
+    _markers.add(
+      Marker(
+        markerId:
+            MarkerId('coffee${coffeeShop.latitude}-${coffeeShop.longitude}'),
+        position: coffeeShop,
+        icon: BitmapDescriptor.defaultMarkerWithHue(coffeeShopHue),
+        onTap: () => _showBottomSheet(coffeeShop),
+      ),
+    );
+  });
+}
+
 
   Future<void> _loadMapStyle() async {
     rootBundle
@@ -165,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                   onMapCreated: _onMapCreated,
                   initialCameraPosition: CameraPosition(
                     target: _currentLocation!,
-                    zoom: 11.0,
+                    zoom: 14.0,
                   ),
                   markers: _markers,
                 ),

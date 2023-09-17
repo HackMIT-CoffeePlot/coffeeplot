@@ -37,6 +37,13 @@ flutter:
       fonts:
         - asset: lib/fonts/Recoleta-SemiBold.ttf 
   assets:
+    - lib/svgs/coffee-grounds-marker.svg
+    - lib/svgs/food-waste-marker.svg
+    - lib/svgs/yard-waste-marker.svg
+    - lib/svgs/bottom-sheet-image.jpg
+    - lib/svgs/compost-image-1.jpg
+    - lib/svgs/compost-image-2.jpg
+    - lib/svgs/compost-image-3.jpg
     - lib/styles/mapstyles.txt
     - lib/svgs/coffeegroundsmarker.svg
     - lib/svgs/coffeegrounds.svg

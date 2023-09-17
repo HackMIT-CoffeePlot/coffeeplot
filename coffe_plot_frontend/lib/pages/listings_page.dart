@@ -2,7 +2,36 @@ import 'package:coffe_plot_frontend/services/auth_helper.dart';
 import 'package:flutter/material.dart';
 import './searchbar.dart';
 
+
 class ListingPage extends StatelessWidget {
+
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          expand: false,
+          minChildSize: 0.2,
+          initialChildSize: 0.5, // 30% of the screen
+          maxChildSize: 0.89, // 100% of the screen
+          builder: (BuildContext context, ScrollController scrollController) {
+            return SingleChildScrollView(
+              controller: scrollController,
+              child: Container(
+                child: Column(
+                  children: [
+                    Image(image: AssetImage('lib/svgs/bottom-sheet-image.jpg')), // Replace with actual image
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
@@ -28,9 +57,14 @@ class ListingPage extends StatelessWidget {
         ),
         Center(
           child: Container(
-            child: Image(
-              image: AssetImage('lib/svgs/list-element-1.jpg'),
-              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            child: GestureDetector(
+              onTap: () {
+                _showBottomSheet(context);
+              },
+              child: Image(
+                image: AssetImage('lib/svgs/list-element-1.jpg'),
+                fit: BoxFit.contain,
+              ),
             ),
           ),
         ),
