@@ -32,7 +32,8 @@ ALLOWED_HOSTS = ['*'] # you can add more as per your need
 AUTH_USER_MODEL = "main.User"
 
 INSTALLED_APPS = [
-    'knox',
+    'corsheaders',
+    'rest_framework.authtoken',
     'rest_framework',
     'main',
     'django.contrib.admin',
@@ -43,7 +44,23 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.authentication.TokenAuthentication',
+    ],
+
+    # Authentication for
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        # 'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

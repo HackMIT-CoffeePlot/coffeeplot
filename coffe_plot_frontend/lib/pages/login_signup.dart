@@ -47,7 +47,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
       _usernameController.text,
       _emailController.text,
       _passwordController.text,
-      _selectedAccountType![0], // Add this line
+      _selectedAccountType!, // Add this line
     );
 
     if (response.containsKey('token')) {

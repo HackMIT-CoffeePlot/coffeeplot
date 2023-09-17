@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:coffe_plot_frontend/services/auth_helper.dart';
 import 'package:coffe_plot_frontend/pages/login_signup.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart'; // Import the Google Maps package
-import 'package:geolocator/geolocator.dart'; // Import the Geolocator package
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:flutter/services.dart';
 import './searchbar.dart';
 
@@ -17,10 +17,27 @@ class _HomePageState extends State<HomePage> {
   GoogleMapController? _mapController;
   String _mapStyle = '';
 
+  // Hardcoded Restaurants and Coffee Shops
+  List<LatLng> _restaurants = [
+    LatLng(42.37625334531107, -71.08809818828726),
+    LatLng(42.37814720962953, -71.10737703434413),
+    LatLng(42.39555676382587, -71.12085879035934),
+    LatLng(42.37133658788123, -71.11473129016687),
+    LatLng(42.367053554047835, -71.10534621189807),
+    // ... Add more locations
+  ];
+
+  List<LatLng> _coffeeShops = [
+    LatLng(42.3607, -71.0998),
+    LatLng(42.3617, -71.1008),
+    // ... Add more locations
+  ];
+
   @override
   void initState() {
     super.initState();
     _getUserLocation();
+    _addRestaurantsAndCoffeeShops();
   }
 
   _getUserLocation() async {
@@ -33,11 +50,16 @@ class _HomePageState extends State<HomePage> {
       );
 
       setState(() {
-        _currentLocation = LatLng(position.latitude, position.longitude);
+        _currentLocation = LatLng(42.35779391672727,
+            -71.09678782116447); // Your hardcoded user location
         _markers.add(
           Marker(
-            markerId: MarkerId('userLocation'),
+            markerId: const MarkerId('userLocation'),
             position: _currentLocation!,
+            icon: BitmapDescriptor.defaultMarkerWithHue(
+              BitmapDescriptor
+                  .hueGreen, // Setting user location marker as green
+            ),
           ),
         );
       });
@@ -46,15 +68,89 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  // This function loads the custom map style
-  // Future<void> _loadMapStyle() async {
-  //   rootBundle.loadString('lib/styles/mapstyles.txt').then((string) => _mapStyle = string);
-  //   _mapController?.setMapStyle(_mapStyle);
-  // }
+  _showBottomSheet(LatLng location) {
+    // Determine if the location is a restaurant or coffee shop
+    bool isRestaurant = _restaurants.contains(location);
+
+    print(isRestaurant);
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return DraggableScrollableSheet(
+          expand: false,
+          minChildSize: 0.2,
+          initialChildSize: 0.3, // 30% of the screen
+          maxChildSize: 0.89,// 100% of the screen
+          builder: (BuildContext context, ScrollController scrollController) {
+            return SingleChildScrollView(
+              controller: scrollController,
+              child: Container(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    Text(
+                      isRestaurant ? 'Restaurant Info' : 'Coffee Shop Info',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    Text('Name: XYZ'), // Replace with actual data
+                    Text('Rating: 4.5'), // Replace with actual data
+                    // ... Add more information as needed
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  _addRestaurantsAndCoffeeShops() {
+    _restaurants.forEach((restaurant) {
+      _markers.add(
+        Marker(
+          markerId: MarkerId(
+              'restaurant${restaurant.latitude}-${restaurant.longitude}'),
+          position: restaurant,
+          icon: BitmapDescriptor.defaultMarkerWithHue(
+            BitmapDescriptor.hueBlue,
+          ),
+          onTap: () => _showBottomSheet(restaurant),
+        ),
+      );
+    });
+
+    _coffeeShops.forEach((coffeeShop) {
+      _markers.add(
+        Marker(
+          markerId:
+              MarkerId('coffee${coffeeShop.latitude}-${coffeeShop.longitude}'),
+          position: coffeeShop,
+          icon: BitmapDescriptor.defaultMarkerWithHue(
+            BitmapDescriptor.hueRed,
+          ),
+          onTap: () => _showBottomSheet(coffeeShop),
+        ),
+      );
+    });
+  }
+
+  Future<void> _loadMapStyle() async {
+    rootBundle
+        .loadString('lib/styles/mapstyles.txt')
+        .then((string) => _mapStyle = string);
+    _mapController?.setMapStyle(_mapStyle);
+  }
 
   void _onMapCreated(GoogleMapController controller) {
     _mapController = controller;
-    // _loadMapStyle(); // Once map is created, we load the style
+    // _loadMapStyle(); // Uncomment if you want to use custom styles.
   }
 
   @override

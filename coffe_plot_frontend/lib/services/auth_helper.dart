@@ -1,3 +1,4 @@
+// auth_helper.dart
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthHelper {
@@ -21,5 +22,10 @@ class AuthHelper {
   static Future<bool> isUserLoggedIn() async {
     final token = await getToken();
     return token != null;
+  }
+
+  static Future<void> clearAll() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.clear();
   }
 }

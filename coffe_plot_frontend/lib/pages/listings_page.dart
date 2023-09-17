@@ -1,3 +1,4 @@
+import 'package:coffe_plot_frontend/services/auth_helper.dart';
 import 'package:flutter/material.dart';
 import './searchbar.dart';
 
