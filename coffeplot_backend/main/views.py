@@ -10,7 +10,7 @@ class LoginAPI(generics.GenericAPIView):
     serializer_class = RegisterUserSerializer
 
     def post(self, request, *args, **kwargs):
-        user = authenticate(username = request.data['username'], password = request.data['password'], account_type = request.data['account_type'])
+        user = authenticate(username = request.data['username'], password = request.data['password'])
         if user is not None:
             _, token = AuthToken.objects.create(user)
             return Response({
