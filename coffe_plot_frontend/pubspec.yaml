@@ -48,3 +48,11 @@ flutter:
     - lib/svgs/toplogo.svg
     - lib/svgs/yardwastemarker.svg
     - lib/svgs/yardwaste.svg
+    - lib/svgs/nav-icon-favorites-selected.svg
+    - lib/svgs/nav-icon-favorites.svg
+    - lib/svgs/nav-icon-list-selected.svg
+    - lib/svgs/nav-icon-list.svg
+    - lib/svgs/nav-icon-map-selected.svg
+    - lib/svgs/nav-icon-map.svg
+    - lib/svgs/nav-icon-stats-selected.svg
+    - lib/svgs/nav-icon-stats.svg
