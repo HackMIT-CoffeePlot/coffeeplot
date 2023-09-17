@@ -13,7 +13,21 @@ This was decently challenging as we had a solid idea but it was 3/4 of the team'
 ![image000000](https://github.com/HackMIT-CoffeePlot/coffeeplot/assets/115097531/ce84efb5-e886-49e9-8f10-84825e530910)
 ![image000001](https://github.com/HackMIT-CoffeePlot/coffeeplot/assets/115097531/7e77ca57-f194-48f2-a7fa-4ae44df7b9e4)
 
-## Back End: 
+## Backend
+Our backend leverages the power of the Django framework. Here's a snapshot of our backend journey:
+
+### Successes:
+- **Django REST Framework**: This has been instrumental in handling user authentication requests.
+- **SQLite Database**: We adopted SQLite for user data storage, anticipating scalability up to 100k hits/day.
+- **Serializers**: An efficient bridge between Flutter and Django was established using serializers. This facilitated a robust connection and token authentication mechanism.
+- **UML Diagram**: Our UML diagram showcases the communication channels between the models, ensuring clarity in operations.
+### Challenges:
+- **Token Authentication**: Aiming to boost user confidence in our platform's security, we embarked on integrating the knox token authentication. Despite its enhanced security over Django's default system, its complexity posed significant challenges. Consequently, after a time-consuming troubleshooting process, we reverted to Django's default authentication.
+- **Flutter Shared Preferences**: This was a hurdle that remained unconquered. We encountered challenges with Flutter's shared preferences, which consumed significant development time, shifting our focus from the backend.
+However, these challenges were counterbalanced by our intensive efforts on the frontend, ensuring a captivating user experience.
+
+### Future Aspirations:
+We're in the process of charting our backend improvements. One intriguing potential inclusion is an **AI Chatbot**, leveraging the capabilities of **GPT-4**, to cater to our compost users.
 
 ![image000000](https://github.com/HackMIT-CoffeePlot/coffeeplot/assets/115097531/3f557546-bf1c-4ad1-94eb-6f8ae0a6fb37)
 
@@ -39,11 +53,11 @@ We were able to get everything onto the app that we wanted, although it took muc
 
 # What we learned
 
-We learned a lot more about Flutter and how to work with Dart.
+We learned a lot more about Flutter and how to work with Dart. We also learned not to use `knox authentication` for hackathons haha
 
 # What's next for Coffee Plot
 
 We want to implement the following:
  - a rating system for users for each listing
  - messaging system between users (besides comments)
- - a chatbot with prompts to educate how to use the compost that people take
+ - an **AI Chatbot**, leveraging the capabilities of **GPT-4**, to cater to our compost users.
