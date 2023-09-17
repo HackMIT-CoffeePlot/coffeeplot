@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class StatsPage extends StatelessWidget {
   @override
@@ -7,8 +8,14 @@ class StatsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Stats Page'),
       ),
+      // body:  SvgPicture.asset(
+      //         'lib/svgs/stats-image.svg',
+      //         color: Colors.grey,
+      //       ),
       body: Center(
-        child: Text('Stats Page'),
+        child: Image(
+          image: AssetImage('lib/svgs/stats-image.jpg'),
+        ),
       ),
     );
   }

@@ -5,11 +5,17 @@ class ListingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Listing Page'),
+        title: Text('Listing Page',
+            style: TextStyle(color: Color(0xFF36342F), fontSize: 24.0)
+            
+        ),
       ),
-      body: Center(
-        child: Text('Listing Page'),
-      ),
+      
+      backgroundColor: Color(0xFFFFFEFA),
+      body: ListView(children: <Widget>[
+        //your content goes
+        Center(child: Text('Listing Page'))
+      ]),
     );
   }
 }

@@ -19,8 +19,8 @@ class _AuthWrapperState extends State<AuthWrapper> {
   final List<Widget> _pages = [
     HomePage(), 
     ListingPage(),
-    StatsPage(),
     FavoritesPage(),
+    StatsPage(),
   ];
 
   @override
@@ -40,31 +40,31 @@ class _AuthWrapperState extends State<AuthWrapper> {
         items: [
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'lib/svgs/Group19.svg',
+              'lib/svgs/Group21.svg',
               color: Colors.grey,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'lib/svgs/Group20.svg',
+              'lib/svgs/Group22.svg',
               color: Colors.grey,
             ),
             label: 'List',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'lib/svgs/Group21.svg',
+              'lib/svgs/Group20.svg',
               color: Colors.grey,
             ),
             label: 'Favorites',
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              'lib/svgs/Group22.svg',
+              'lib/svgs/Group19.svg',
               color: Colors.grey,
             ),
-            label: 'Profile',
+            label: 'Stats',
           ),
         ],
       ),

@@ -59,3 +59,5 @@ flutter:
     - lib/svgs/nav-icon-map.svg
     - lib/svgs/nav-icon-stats-selected.svg
     - lib/svgs/nav-icon-stats.svg
+    - lib/svgs/stats-image.svg
+    - lib/svgs/stats-image.jpg

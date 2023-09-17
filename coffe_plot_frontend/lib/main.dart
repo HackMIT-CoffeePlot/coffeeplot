@@ -9,7 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Your App Title',
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'GraphikLCG-Regular'),
+      theme: ThemeData(
+          primarySwatch: Colors.blue, fontFamily: 'GraphikLCG-Regular'),
       home: AuthWrapper(),
     );
   }
