@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:coffe_plot_frontend/services/auth_helper.dart';
 import 'package:coffe_plot_frontend/pages/login_signup.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';  // Import the package
 
 class HomePage extends StatelessWidget {
+  final LatLng _center = const LatLng(37.4219999, -122.0840575);  // Default to GooglePlex
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +24,12 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(child: Text('Welcome to Home Page!')),
+      body: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: _center,
+          zoom: 11.0,
+        ),
+      ),
     );
   }
 }

@@ -3,6 +3,11 @@
         android:label="coffe_plot_frontend"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- Google Maps API -->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyCOQF4Z50gMIJzTm6echJFlpomGQBDk5yw"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
