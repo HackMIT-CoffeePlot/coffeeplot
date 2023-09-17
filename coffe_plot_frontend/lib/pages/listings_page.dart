@@ -29,6 +29,62 @@ class ListingPage extends StatelessWidget {
             ),
           ), // Add this line
         ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/list-element-1.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/list-element-2.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/list-element-3.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/list-element-4.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/list-element-5.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/list-element-6.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/list-element-7.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
       ]),
     );
   }

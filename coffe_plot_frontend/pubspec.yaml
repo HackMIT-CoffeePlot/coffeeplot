@@ -61,3 +61,15 @@ flutter:
     - lib/svgs/nav-icon-stats.svg
     - lib/svgs/stats-image.svg
     - lib/svgs/stats-image.jpg
+    - lib/svgs/list-element-1.jpg
+    - lib/svgs/list-element-2.jpg
+    - lib/svgs/list-element-3.jpg
+    - lib/svgs/list-element-4.jpg
+    - lib/svgs/list-element-5.jpg
+    - lib/svgs/list-element-6.jpg
+    - lib/svgs/list-element-7.jpg
+    - lib/svgs/favorites-list-1.jpg
+    - lib/svgs/favorites-list-2.jpg
+    - lib/svgs/favorites-list-3.jpg
+    - lib/svgs/favorites-list-4.jpg
+    - lib/svgs/favorites-list-title.jpg

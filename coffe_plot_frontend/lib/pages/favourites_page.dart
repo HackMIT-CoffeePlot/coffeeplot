@@ -15,7 +15,47 @@ class FavoritesPage extends StatelessWidget {
             // height: deviceSize.height * 0.x, (Uncomment and adjust if you also want to adjust the height)
             child: BarSearch(),
           ),
-        )
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/favorites-list-title.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/favorites-list-1.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/favorites-list-2.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/favorites-list-3.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
+        Center(
+          child: Container(
+            child: Image(
+              image: AssetImage('lib/svgs/favorites-list-4.jpg'),
+              fit: BoxFit.contain, //fill, //contain, cover, scaleDown,
+            ),
+          ),
+        ),
       ]),
     );
   }
