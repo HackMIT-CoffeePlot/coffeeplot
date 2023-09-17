@@ -37,6 +37,7 @@ flutter:
       fonts:
         - asset: lib/fonts/Recoleta-SemiBold.ttf 
   assets:
+    - lib/styles/mapstyles.txt
     - lib/svgs/coffeegroundsmarker.svg
     - lib/svgs/coffeegrounds.svg
     - lib/svgs/foodscaps.svg

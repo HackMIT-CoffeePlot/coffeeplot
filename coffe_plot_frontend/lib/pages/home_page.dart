@@ -3,6 +3,7 @@ import 'package:coffe_plot_frontend/services/auth_helper.dart';
 import 'package:coffe_plot_frontend/pages/login_signup.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart'; // Import the Google Maps package
 import 'package:geolocator/geolocator.dart'; // Import the Geolocator package
+import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,6 +13,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   LatLng? _currentLocation;
   final Set<Marker> _markers = {};
+  GoogleMapController? _mapController;
+  String _mapStyle = '';
 
   @override
   void initState() {
@@ -20,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   _getUserLocation() async {
-    print('We are getting the location');
     try {
       await Geolocator.checkPermission();
       await Geolocator.requestPermission();
@@ -41,6 +43,17 @@ class _HomePageState extends State<HomePage> {
     } catch (e) {
       print("Error fetching user location: $e");
     }
+  }
+
+  // This function loads the custom map style
+  // Future<void> _loadMapStyle() async {
+  //   rootBundle.loadString('lib/styles/mapstyles.txt').then((string) => _mapStyle = string);
+  //   _mapController?.setMapStyle(_mapStyle);
+  // }
+
+  void _onMapCreated(GoogleMapController controller) {
+    _mapController = controller;
+    // _loadMapStyle(); // Once map is created, we load the style
   }
 
   @override
@@ -66,6 +79,7 @@ class _HomePageState extends State<HomePage> {
               child:
                   CircularProgressIndicator()) // Show a loading indicator until the location is fetched
           : GoogleMap(
+              onMapCreated: _onMapCreated,
               initialCameraPosition: CameraPosition(
                 target: _currentLocation!,
                 zoom: 11.0,
