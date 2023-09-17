@@ -12,19 +12,20 @@ class ListingPage extends StatelessWidget {
         //your content goes here
         Center(
           child: Container(
-            width: deviceSize.width * 0.9, // adjust size using 0.x where x is a decimal number between 0 and 1
+            width: deviceSize.width *
+                0.9, // adjust size using 0.x where x is a decimal number between 0 and 1
             // height: deviceSize.height * 0.x, (Uncomment and adjust if you also want to adjust the height)
             child: BarSearch(),
           ),
         ),
         Align(
-          alignment: Alignment.centerLeft, // Align the text to the right
+          alignment: Alignment.centerLeft,
           child: Text(
-            'Near Me',
+            'Near you',
             style: TextStyle(
-              color: Colors.green,
+              color: Color(0xFF7AA987),
               fontSize: 40,
-              fontFamily: 'GraphikLCG-Semibold', // Use the font family name
+              fontFamily: 'Recoleta-SemiBold', // Use the font family name
             ),
           ), // Add this line
         ),
